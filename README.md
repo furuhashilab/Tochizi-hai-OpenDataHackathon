@@ -11,6 +11,9 @@
 ### ドローン空撮データ オープン化
 * https://github.com/dronebird/oam_sagamihara20211215aoyamauniv1155mapconcierge00arw01
 
+### Mapbox Style 仕様日本語ドキュメント完成
+* https://github.com/furuhashilab/StyleSpecification4mapbox
+
 
 
 ## 都知事杯 Webページ
