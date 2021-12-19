@@ -3,7 +3,8 @@
 
 
 ## プレゼン資料
-
+<a href="https://speakerdeck.com/furuhashilab/timuqing-xue-du-zhi-shi-bei"><img src="https://user-images.githubusercontent.com/416977/146668565-135ecc38-f348-4c52-ba6d-a90a23a23fb2.jpg" width="600" /></a>
+* https://speakerdeck.com/furuhashilab/timuqing-xue-du-zhi-shi-bei
 
 
 ## 成果物
