@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Demo: Using recolorable images in Mapbox maps</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js"></script>
+    <link
+      href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      mapboxgl.accessToken = 'pk.eyJ1IjoibWFwY29uY2llcmdlIiwiYSI6ImJmNENfRG8ifQ.sfstXrLSQ50IqGHpAUlKDw';
+
+      const map = new mapboxgl.Map({
+        'container': 'map',
+        'style': 'mapbox://styles/mapbox/light-v10',
+        'center': [-105.0178157, 39.737925],
+        'zoom': 12
+      });
+
+      map.on('load', () => {
+        map.loadImage('./shop-15.png', (error, image) => {
+          if (error) throw error;
+          map.addImage('store-icon', image, { 'sdf': true });
+          map.addSource('food-stores', {
+            'type': 'vector',
+            'url': 'mapbox://examples.dl46ljcs'
+          });
+          map.addLayer({
+            'id': 'stores',
+            'source': 'food-stores',
+            'source-layer': 'food_stores-8sw1vy',
+            'type': 'symbol',
+            'layout': {
+              'icon-image': 'store-icon',
+              'icon-size': 0.5
+            },
+            'paint': {
+              'icon-color': [
+                'match', // Use the 'match' expression: https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-match
+                ['get', 'STORE_TYPE'], // Use the result 'STORE_TYPE' property
+                'Convenience Store',
+                '#FF8C00',
+                'Convenience Store With Gas',
+                '#FF8C00',
+                'Pharmacy',
+                '#FF8C00',
+                'Specialty Food Store',
+                '#9ACD32',
+                'Small Grocery Store',
+                '#008000',
+                'Supercenter',
+                '#008000',
+                'Superette',
+                '#008000',
+                'Supermarket',
+                '#008000',
+                'Warehouse Club Store',
+                '#008000',
+                '#FF0000' // any other store type
+              ]
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
